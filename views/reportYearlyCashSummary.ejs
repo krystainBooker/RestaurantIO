@@ -1,0 +1,47 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="/content/layouts/main.css">
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>
+                    <%= pageData.restaurantName %>
+                </h1>
+                <h2>Yearly Cash summary Report</h2>
+                <h4><%= date %></h4>
+                <br />
+            </div>
+            <div class="cashSummaryReport-grid-container">
+                <div class="cashSummaryReport-grid-item"></div>
+                <div class="cashSummaryReport-grid-item"></div>
+                <div class="cashSummaryReport-grid-item">
+                    <h1>Sales Summary</h1>
+                </div>
+                <div class="cashSummaryReport-grid-item"></div>
+                <div class="cashSummaryReport-grid-item"></div>
+                <div class="cashSummaryReport-grid-item">
+                    <h3>$
+                        <%= cashSummary %>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script src="/content/js/reports/reportsAutomaticPrint.js"></script>
+</footer>
+
+</html>

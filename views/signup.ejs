@@ -1,0 +1,98 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <title>RestaurantIO - Create Restaurant</title>
+    <link rel="icon" href="/content/images/wallet.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/content/layouts/main.css">
+
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading">RestaurantIO</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="/about" class="pure-menu-link">About Us</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
+                <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>Create Restaurant</h1>
+                <br />
+                <% if (message.length > 0) { %>
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <%= message %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="content">
+                <div class="centeredContent">
+                    <form class="pure-form pure-form-aligned" action="/CreateRestaurant" method="post">
+                        <fieldset>
+                            <div class="pure-control-group">
+                                <label for="firstName">First Name</label>
+                                <input id="firstName" name="firstName" type="text" placeholder="First Name" maxlength="21" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="lastName">Last Name</label>
+                                <input id="lastName" name="lastName" type="text" placeholder="Last Name" maxlength="21" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="email">Email Address</label>
+                                <input id="email" name="email" type="email" placeholder="Email Address" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="password">Password</label>
+                                <input id="password" name="password" type="password" placeholder="Password" maxlength="21" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" maxlength="21" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="securityQuestion">Security Question</label>
+                                <input id="securityQuestion" name="securityQuestion" type="text" placeholder="Security Question" maxlength="21" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="securityAnswer">Security Answer</label>
+                                <input id="securityAnswer" name="securityAnswer" type="text" placeholder="Security Answer" maxlength="21" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="restaurantName">Restaurant Name</label>
+                                <input id="restaurantName" name="restaurantName" type="text" placeholder="Restaurant Name" maxlength="21" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="isAdmin" value="1" required>
+                            </div>
+
+                            <div class="pure-controls">
+                                <button type="submit" class="pure-button pure-button-primary">Create Restaurant</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

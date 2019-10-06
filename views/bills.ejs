@@ -1,0 +1,61 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <title>RestaurantIO: Bills</title>
+    <link rel="icon" href="/content/images/wallet.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="/content/layouts/main.css">
+
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading">RestaurantIO:
+                <%= pageData.restaurantName %>
+            </a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/menu" class="pure-menu-link">Menu</a></li>
+                <li class="pure-menu-item"><a href="/tables" class="pure-menu-link">Tables</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="/bills" class="pure-menu-link">Bills</a></li>
+                <li class="pure-menu-item"><a href="/reports" class="pure-menu-link">Reports</a></li>
+                <% if(user.userIsAdmin == 1){ %>
+                <li class="pure-menu-item"><a href="/userAccount" class="pure-menu-link">User Account</a></li>
+                <% }%>
+                <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>Bills</h1>
+                <br />
+            </div>
+            <div id="billcontainter" class="billContainerSpacers"></div>
+        </div>
+    </div>
+</body>
+<footer>
+
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <!--Context menu jquery plugin-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.ui.position.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.ui.position.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="/content/js/bills/bills.js"></script>
+    <script src="/content/js/bills/billsContextMenu.js"></script>
+</footer>
+
+</html>

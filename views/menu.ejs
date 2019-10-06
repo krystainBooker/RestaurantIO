@@ -1,0 +1,104 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <title>RestaurantIO: Menu</title>
+    <link rel="icon" href="/content/images/wallet.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="/content/layouts/main.css">
+
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading">RestaurantIO:
+                <%= pageData.restaurantName %>
+            </a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item pure-menu-selected"><a href="/menu" class="pure-menu-link">Menu</a></li>
+                <li class="pure-menu-item"><a href="/tables" class="pure-menu-link">Tables</a></li>
+                <li class="pure-menu-item"><a href="/bills" class="pure-menu-link">Bills</a></li>
+                <li class="pure-menu-item"><a href="/reports" class="pure-menu-link">Reports</a></li>
+                <% if(user.userIsAdmin == 1){ %>
+                <li class="pure-menu-item"><a href="/userAccount" class="pure-menu-link">User Account</a></li>
+                <% }%>
+                <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>Menu</h1>
+                <br />
+            </div>
+
+            <ul id="billsNavbar" class="billsNavbar">
+                <li><a id="NewBill" class="verticalBills">New Bill</a></li>
+            </ul>
+
+            <div id="menuSettingsDiv" class="userAccountSpacer">
+
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul id="menuFilters" class="menuList"></ul>
+                </div>
+
+                <div id="menuItems" class="menuItemContainer"></div>
+
+                <div id="menuBill" class="menuBillRight">
+                    <h3 class="centreText">Active Bill</h3>
+                    <div id="billItemContainer" class="bill-container"></div>
+                    <br />
+                    <div class="bill-container">
+                        <div class="bill-item">Sub-Total: </div>
+                        <div id="subTotalLabel" class="bill-item">$00.00</div>
+                        <div class="bill-item">Tax: </div>
+                        <div id="taxLabel" class="bill-item">$00.00</div>
+                        <div class="bill-item">Total: </div>
+                        <div id="totalLabel" class="bill-item">$00.00</div>
+                    </div>
+                    <div class="bill-footer-container">
+                        <div class="bill-footer-item">
+                            <button class="activeBillButtons pure-button" onclick="sendBillToKitchen()">Send
+                                to kitchen</button>
+                        </div>
+                        <div class="bill-footer-item" onclick="openCustomInstructionsModal()">
+                            <button class="activeBillButtons pure-button">Add custom instructions</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div id="billSelectionModal" class="modal">
+        <h1 class="centreText">Please select a bill before performing the selection.</h1>
+    </div>
+    <div id="customInstructionsModal" class="modal">
+        <p>
+            <h1>Custom instructions</h1>
+            <form id="instructionForm" action="/UpdateBillCustomInstructions" method="post">
+                <div class="pure-control-group">
+                    <textarea id="customInstructionsTextArea" rows="4" cols="50" maxlength="255" required></textarea>
+                </div>
+                <div class="pure-controls modalButtons">
+                    <button id="submit" type="submit" class="pure-button pure-button-primary">Save</button>
+                </div>
+            </form>
+        </p>
+    </div>
+
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script src="/content/js/menu/menu.js"></script>
+    <script src="/content/js/menu/menuFormSubmissions.js"></script>
+</footer>
+
+</html>

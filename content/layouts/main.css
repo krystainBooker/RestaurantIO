@@ -1,0 +1,510 @@
+/*Universal Theme*/
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6,label {
+    color: #34495e;
+}
+
+.centreText{
+    text-align: center;
+}
+
+.hiddenElement{
+    visibility: collapse;
+}
+
+/*Buttons*/
+.pure-button {
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+}
+
+a.pure-button-primary {
+    background: white;
+    color: #1f8dd6;
+    border-radius: 5px;
+    font-size: 120%;
+    cursor:pointer;
+}
+
+.largeButton{
+    font-size: 125%;
+}
+
+/*Nav Bar*/
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #2d3e50;
+    text-align: left;
+}
+    .home-menu ul {
+        float: right;
+    }
+
+
+.pure-menu.pure-menu-fixed {
+    border-bottom: none;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+
+.home-menu a {
+    color: #6FBEF3;
+}
+
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #AECFE5;
+}
+
+/*Vertical Navbar*/
+ul.verticalMenu {
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    list-style-type: none;
+    background-color: #f1f1f1;
+}
+
+li a.verticalItems {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+li a.verticalItems.active {
+    background-color: #34495e;
+    color: white;
+}
+
+li a.verticalItems:hover:not(.active) {
+    background-color: #AECFE5;
+    color: white;
+}
+
+li a.verticalBills{
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+li a.verticalBills.active {
+    background-color: #34495e;
+    color: white;
+}
+
+li a.verticalBills:hover:not(.active) {
+    background-color: #AECFE5;
+    color: white;
+}
+
+li a.verticalBillsNonClickable{
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor:context-menu;
+}
+
+/*Menu Navbar*/
+ul.menuList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+li.menuItems {
+    float: left;
+}
+
+li a.menuA {
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+li a.menuA.active {
+    background-color: #34495e;
+    color: white;
+}
+
+li a.menuA:hover:not(.active) {
+    background-color: #AECFE5;
+    color: white;
+}
+
+/*Splash Body*/
+.splash-container {
+    background: #1f8dd6;
+    width: 100%;
+    height: 100%;
+}
+
+.splash {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.splash-head {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 3px solid white;
+    padding: 1em 1.6em;
+    font-weight: 100;
+    border-radius: 5px;
+    line-height: 1em;
+    font-size: 300%;
+}
+
+.splash-subhead {
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/* Large body content section, used for About, Login, Sign up, account creation, restaurant creation*/
+.content {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 45%;
+    margin-bottom: 50px;
+}
+
+.header {
+     margin: 0;
+     color: #333;
+     text-align: center;
+     padding: 2.5em 2em 0;
+     border-bottom: 1px solid #eee;
+ }
+
+.header h1 {
+        margin: 0.2em 0;
+        font-size: 3em;
+        font-weight: 300;
+}
+
+.header h2 {
+    font-weight: 300;
+    color: #ccc;
+    padding: 0;
+    margin-top: 0;
+}
+
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
+.centeredContent{
+    margin: 50 auto;
+    width: 50%;
+}
+
+/*Validation alert*/
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+/*User account*/
+.userAccountSpacer{
+    margin-left: 10%;
+}
+
+/*Menu*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 5px;
+}
+
+.grid-item {
+    padding: 5px;
+    text-align: center;
+}
+
+.menuButton{
+    width:80%;
+    white-space: normal;
+}
+
+.modalButtons{
+    float:right;
+} 
+
+.menuSettingsItemContainer{
+    height: 75%;
+}
+
+.menuItemContainer{
+    height: 75%;
+    width: 75%;
+    float:left;
+}
+
+.menuBillRight{
+    width: 23%;
+    height: 70%;
+    max-height: 70%;
+
+    float: right;
+    overflow: auto;
+
+    margin: 5px;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #000;
+    background-color: #f1f1f1;
+}
+
+ul.billsNavbar{
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    list-style-type: none;
+    background-color: #f1f1f1;
+    padding-right: 5px;
+}
+
+.bill-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    background-color: #f1f1f1;
+  }
+
+.bill-item {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.bill-item-NonClickable {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.bill-footer-container {
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: #f1f1f1;
+  }
+
+.bill-footer-item {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.billAmount{
+    background-color: #ffffff;
+}
+
+/*Table*/
+.tableSpacer{
+    margin-left: 10.8%;
+}
+
+.tableSettingsButtonColumn{
+    width:10%;
+    max-width: 10%;
+    padding: 1%;
+}
+
+.tableSettingsContainer{
+    height: 75%;
+    width: 88.5%;
+    max-height: 80%;
+}
+
+.tableSettings{
+    color: #f1f1f1;
+    text-align: center;
+    width: 15%;
+    height: 15%;
+    background: #34495e;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+.table{
+    color: #f1f1f1;
+    text-align: center;
+    width: 15%;
+    height: 15%;
+    background: #34495e;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+}
+
+/*Bills Page*/
+
+.billContainerSpacers{
+    margin-left: 5%;
+    margin-right: 1%;
+}
+.bill{
+    width: 23%;
+    height: 70%;
+    max-height: 70%;
+
+    overflow: auto;
+    float:left;
+    margin: 5px;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #000;
+    background-color: #f1f1f1;
+}
+
+/* Reports page */
+
+.reports-grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    padding: 10px;
+}
+
+.reports-grid-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.button-small {
+    font-size: 85%;
+    width:80%;
+}
+
+@media screen and (max-width: 1500px){
+    .button-small {
+        font-size: 55%;
+        width:100%;
+    }
+}
+
+.activeBillButtons{
+    font-size: 125%;
+}
+
+@media screen and (max-width: 1500px){
+    .activeBillButtons{
+        font-size: 100%;
+    }
+}
+
+
+
+/* Daily Cash Summary Report*/
+.cashSummaryReport-grid-container {
+    display: grid;
+    grid-template-columns: 20% 20% 60%;
+    padding: 10px;
+}
+
+.cashSummaryReport-grid-item {
+    padding: 20px;
+    text-align: right;
+}
+
+/*Menu Popularity Report*/
+.menuPopularityReport-grid-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 10px;
+}
+
+.menuPopularityReport-grid-item {
+    padding: 20px;
+    text-align: right;
+}
+
+/*Reports single column*/
+.reportSingle-grid-container {
+    display: grid;
+    grid-template-columns: 33%;
+    padding: 10px;
+}
+
+.reportSingle-grid-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/*User account button*/
+.userAccount-buttons {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    width:25%;
+}

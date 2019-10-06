@@ -1,0 +1,33 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="/content/layouts/main.css">
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>Kitchen Bill</h1>
+                <br />
+            </div>
+            <ul id="KitchenReport"></ul>
+            <h4 id="customInstructions"></h4>
+        </div>
+    </div>
+</body>
+<footer>
+    <input id="BillId" type="hidden" value="<%= billId %>">
+
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="/content/js/reports/reportSendToKitchen.js"></script>
+</footer>
+
+</html>

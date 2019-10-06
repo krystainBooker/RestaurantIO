@@ -1,0 +1,32 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "RestaurantIO: Krystian Booker",
+  "main": "index.js",
+  "directories": {
+    "vendor": "vendor"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.15.2",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.4.3",
+    "ejs": "~2.5.2",
+    "express": "^4.16.3",
+    "express-session": "~1.14.1",
+    "method-override": "~2.3.6",
+    "morgan": "~1.7.0",
+    "mysql": "^2.15.0",
+    "nocache": "^2.0.0",
+    "passport": "~0.3.2",
+    "passport-facebook": "~2.1.1",
+    "passport-google-oauth": "~1.0.0",
+    "passport-local": "~1.0.0",
+    "passport-twitter": "~1.0.4"
+  }
+}

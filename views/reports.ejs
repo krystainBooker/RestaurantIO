@@ -1,0 +1,154 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <title>RestaurantIO: Reports</title>
+    <link rel="icon" href="/content/images/wallet.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="/content/layouts/main.css">
+
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading">RestaurantIO:
+                <%= pageData.restaurantName %>
+            </a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/menu" class="pure-menu-link">Menu</a></li>
+                <li class="pure-menu-item"><a href="/tables" class="pure-menu-link">Tables</a></li>
+                <li class="pure-menu-item"><a href="/bills" class="pure-menu-link">Bills</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="/reports" class="pure-menu-link">Reports</a></li>
+                <% if(user.userIsAdmin == 1){ %>
+                <li class="pure-menu-item"><a href="/userAccount" class="pure-menu-link">User Account</a></li>
+                <% }%>
+                <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>Reports</h1>
+                <br />
+            </div>
+            <% if(user.userIsAdmin == 1){ %>
+            <div class="reports-grid-container">
+                <div class="reports-grid-item">Cash Reports</div>
+                <div class="reports-grid-item">Data Reports</div>
+                <div class="reports-grid-item">Share Reports</div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="dailyCashSummary()">Daily Cash Summary</button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="menuPopularity()">Menu Popularity</button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="shareServerIncomeReport()">
+                        Share server income reports
+                        <br />
+                        with servers
+                    </button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="monthlyCashSummary()">Monthly Cash Summary</button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="serverIncomeReport()">Server Income Report</button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="shareIncomveVsDayTimeReport()">
+                        Share income vs day time report
+                        <br />
+                        with servers
+                    </button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="yearlyCashSummary()">Yearly Cash Summary</button>
+                </div>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="incomveVsDayTimeReport()">
+                        Income vs day time report
+                    </button>
+                </div>
+            </div>
+            <% } else if(user.userHasSharedIncomeReport == 1 || user.userHasSharedIncomeVDayReport == 1){%>
+            <div class="reportSingle-grid-container">
+                <div class="reportSingle-grid-item">Shared Reports</div>
+                <% if(user.userHasSharedIncomeReport == 1){ %>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="serverIncomeReport()">Server Income Report</button>
+                </div>
+                <%}%>
+                <% if(user.userHasSharedIncomeVDayReport == 1){ %>
+                <div class="reports-grid-item">
+                    <button class="button-small pure-button" onclick="incomveVsDayTimeReport()">
+                        Income vs day time report
+                    </button>
+                </div>
+                <%}%>
+            </div>
+            <% } else {%>
+            <h1 class="centreText">No reports have been shared with you</h1>
+            <% }%>
+        </div>
+    </div>
+</body>
+<footer>
+    <div id="dailyCashSummaryModal" class="modal">
+        <p>
+            <h1>Daily Cash Sumary</h1>
+            <form id="dailyCashSummaryForm" action="/DailyCashSummarySimple" method="post">
+                <div class="pure-control-group">
+                    <label for="reportType">Report Type: </label>
+                    <select id="reportType" name="reportType">
+                        <option value="simple">Simple</option>
+                        <option value="detailed">Detailed</option>
+                    </select>
+                </div>
+                <div class="pure-controls modalButtons">
+                    <button id="submit" type="submit" class="pure-button pure-button-primary">Print</button>
+                </div>
+            </form>
+        </p>
+    </div>
+    <div id="monthlyCashSummaryModal" class="modal">
+        <p>
+            <h1>Monthly Cash Sumary</h1>
+            <form id="monthlyCashSummaryForm" action="/MonthlyCashSummarySimple" method="post">
+                <div class="pure-control-group">
+                    <label for="monthlyReportType">Report Type: </label>
+                    <select id="monthlyReportType" name="monthlyReportType">
+                        <option value="simple">Simple</option>
+                        <option value="detailed">Detailed</option>
+                    </select>
+                </div>
+                <div class="pure-controls modalButtons">
+                    <button id="submit" type="submit" class="pure-button pure-button-primary">Print</button>
+                </div>
+            </form>
+        </p>
+    </div>
+    <input id="restaurantId" type="hidden" value="<%= user.RestaurantId %>">
+
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <!--Context menu jquery plugin-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.contextMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.ui.position.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.6.4/jquery.ui.position.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="/content/js/reports/reports.js"></script>
+    <script src="/content/js/reports/reportsFormSubmission.js"></script>
+</footer>
+
+</html>

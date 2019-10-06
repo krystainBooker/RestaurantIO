@@ -1,0 +1,63 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <title>RestaurantIO: Login</title>
+    <link rel="icon" href="/content/images/wallet.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/content/layouts/main.css">
+
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading">RestaurantIO</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="/about" class="pure-menu-link">About Us</a></li>
+                <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="/login" class="pure-menu-link">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>Login</h1>
+                <br />
+                <% if (message.length > 0) { %>
+                <div class="alert alert-danger">
+                    <%= message %>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="content">
+                <div class="centeredContent">
+                    <form class="pure-form pure-form-aligned" action="/login" method="post">
+                        <fieldset>
+                            <div class="pure-control-group">
+                                <label for="email">Email Address</label>
+                                <input id="email" name="email" type="email" placeholder="Email Address">
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="password">Password</label>
+                                <input id="password" name="password" type="password" placeholder="Password">
+                            </div>
+
+                            <div class="pure-controls">
+                                <button type="submit" class="pure-button pure-button-primary">Login</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

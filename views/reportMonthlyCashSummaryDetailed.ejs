@@ -1,0 +1,49 @@
+<!DOCTYPE ejs>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/content/layouts/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="/content/layouts/main.css">
+</head>
+
+<body>
+    <div id="layout">
+        <div id="main">
+            <div class="header">
+                <h1>
+                    <%= pageData.restaurantName %>
+                </h1>
+                <h2>Monthly Cash summary Report</h2>
+                <h4>
+                    <%= date %>
+                </h4>
+                <br />
+            </div>
+            <div id="detailedSummaryContainer" class="cashSummaryReport-grid-container">
+                <div class="cashSummaryReport-grid-item">
+                    <h1>Table</h1>
+                </div>
+                <div class="cashSummaryReport-grid-item">
+                    <h1>Time</h1>
+                </div>
+                <div class="cashSummaryReport-grid-item">
+                    <h1>Total</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <h3 style="text-align: right">
+        Sales: $<%= cashSummary.dailyCashSummarySum %>
+    </h3>
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="/content/js/reports/reportMonthlyCashSummaryDetailed.js"></script>
+</footer>
+
+</html>
